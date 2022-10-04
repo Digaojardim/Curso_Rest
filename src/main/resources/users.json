@@ -1,0 +1,168 @@
+{
+    "definition":{
+    "$schema": "https://json-schema.org/draft/2019-09/schema#",
+    "$id": "http://example.com/example.json",
+    "title": "Root Schema",
+    "type": "array",
+    "default": [],
+    "items": {
+        "title": "A Schema",
+        "type": "object",
+        "required": [
+            "id",
+            "name",
+            "age",
+            "endereco",
+            "filhos"
+        ],
+        "properties": {
+            "id": {
+                "title": "The id Schema",
+                "type": "number",
+                "examples": [
+                    1,
+                    2,
+                    3
+                ]
+            },
+            "name": {
+                "title": "The name Schema",
+                "type": "string",
+                "examples": [
+                    "João da Silva",
+                    "Maria Joaquina",
+                    "Ana Júlia"
+                ]
+            },
+            "age": {
+                "title": "The age Schema",
+                "type": "number",
+                "examples": [
+                    30,
+                    25,
+                    20
+                ]
+            },
+            "endereco": {
+                "title": "The endereco Schema",
+                "type": "object",
+                "default": {},
+                "required": [
+                    "rua",
+                    "numero"
+                ],
+                "properties": {
+                    "rua": {
+                        "title": "The rua Schema",
+                        "type": "string",
+                        "default": "",
+                        "examples": [
+                            "Rua dos bobos"
+                        ]
+                    },
+                    "numero": {
+                        "title": "The numero Schema",
+                        "type": "number",
+                        "default": 0,
+                        "examples": [
+                            0
+                        ]
+                    }
+                },
+                "examples": [{
+                    "rua": "Rua dos bobos",
+                    "numero": 0
+                }]
+            },
+            "filhos": {
+                "title": "The filhos Schema",
+                "type": "array",
+                "default": [],
+                "items": {
+                    "title": "A Schema",
+                    "type": "object",
+                    "required": [
+                        "name"
+                    ],
+                    "properties": {
+                        "name": {
+                            "title": "The name Schema",
+                            "type": "string",
+                            "examples": [
+                                "Zezinho",
+                                "Luizinho"
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "name": "Zezinho"
+                    },
+                    {
+                        "name": "Luizinho"
+                    }]
+                },
+                "examples": [
+                    [{
+                        "name": "Zezinho"
+                    },
+                    {
+                        "name": "Luizinho"
+                    }]
+                ]
+            }
+        },
+        "examples": [{
+            "id": 1,
+            "name": "João da Silva",
+            "age": 30
+        },
+        {
+            "id": 2,
+            "name": "Maria Joaquina",
+            "endereco": {
+                "rua": "Rua dos bobos",
+                "numero": 0
+            },
+            "age": 25
+        },
+        {
+            "id": 3,
+            "name": "Ana Júlia",
+            "age": 20,
+            "filhos": [{
+                "name": "Zezinho"
+            },
+            {
+                "name": "Luizinho"
+            }]
+        }]
+    },
+    "examples": [
+        [{
+            "id": 1,
+            "name": "João da Silva",
+            "age": 30
+        },
+        {
+            "id": 2,
+            "name": "Maria Joaquina",
+            "endereco": {
+                "rua": "Rua dos bobos",
+                "numero": 0
+            },
+            "age": 25
+        },
+        {
+            "id": 3,
+            "name": "Ana Júlia",
+            "age": 20,
+            "filhos": [{
+                "name": "Zezinho"
+            },
+            {
+                "name": "Luizinho"
+            }]
+        }]
+    ]
+    }
+}

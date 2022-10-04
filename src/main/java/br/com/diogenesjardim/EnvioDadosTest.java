@@ -1,0 +1,65 @@
+package br.com.diogenesjardim;
+
+import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.containsString;
+
+
+import org.junit.Test;
+
+import io.restassured.http.ContentType;
+
+
+public class EnvioDadosTest {
+	
+	@Test
+	public void deveEnviarValorViaQury() {
+		given()
+		     .log().all()
+		.when()
+		     .get("https://restapi.wcaquino.me/v2/users?format=xml")
+		.then()
+		     .log().all()
+		     .statusCode(200)
+		     .contentType(ContentType.XML)
+		
+		;
+		
+	}
+	
+	@Test
+	public void deveEnviarValorViaQuryViaParam() {
+		given()
+		     .log().all()
+		     .queryParam("format", "xml")
+		     .queryParam("outa", "coisa")
+		.when()
+		     .get("https://restapi.wcaquino.me/v2/users")
+		.then()
+		     .log().all()
+		     .statusCode(200)
+		     .contentType(ContentType.XML)
+		     .contentType(containsString("utf-8"))
+		
+		;
+		
+	}
+	
+	@Test
+	public void deveEnviarValorViaQuryViaHeader() {
+		given()
+		     .log().all()
+		     .accept(ContentType.XML)
+		.when()
+		     .get("https://restapi.wcaquino.me/v2/users")
+		.then()
+		     .log().all()
+		     .statusCode(200)
+		     .contentType(ContentType.XML)
+		   
+		 
+		;
+		
+	}
+
+
+}
